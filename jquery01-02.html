@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq 1-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    <script>
+        // jquery를 이용하여 html 태그가 모두 로딩된 후 자바스크립트가 로딩되게 하는 이벤트
+        $(document).ready(function(){
+            // 클릭 이벤트를 직접 실행
+            $("#target").click(function(){
+                alert("클릭을했습니다.");
+            });
+
+
+            // 클릭 이벤트를 이벤트 리스너에 등록해서 동작
+            $("#other").on("click",function(){
+                $("#target").click();
+            });
+
+            $(".red").on("contextmenu", function(){
+                alert("마우스 오른쪽 버튼 클릭");
+            });
+
+            $(".red").on("dblcick",function(){
+                alert("마우스 왼쪽 더블클릭");
+            });
+
+            $(".green").on("mouseenter",function(){
+                alert("마우스가 green 태그에 안으로 들어왔습니다.");
+            });
+
+            $(".green").on("mouseleave",function(){
+                alert("마우스 green 태그그 밖으로 나갔습니다.");
+            });
+
+            $(".blue").on("dblclick",function(){
+                alert("마우스 왼쪽 버튼 더블 클릭했습니다.");
+            });
+
+            $(".blue").on("mousemove",function(){
+                var x = event.pageX;
+                var y = event.pageY;
+
+                console.log("마우스의 위치:"+x+","+y);
+            });
+
+
+        });
+    </script>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .red {background-color: red;}
+        .blue {background-color: blue;}
+        .green {background-color: green; width: 300px; height: 300px;}
+
+    </style>
+</head>
+<body>
+
+ 
+    
+</body>
+</html>
