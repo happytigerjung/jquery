@@ -8,6 +8,37 @@
     
 
     <script>
+
+
+    //  키보드 이벤트
+    // keydown:키보드의 키를 누를 때 발생
+    // keyup:키보드의 키를 눌렀다가 땔 때 발생
+    // keypress:키보드를 계속 누르고 있는 경우 발생
+
+
+
+    //  form이벤트
+    // submit: input 태그의 type=submit 버튼이 클릭 되었을 경우 발생
+    // change: input 태그의 value 값이 변경될 경우 발생
+    // focus: input 태그에 focus가 주어졌을 경우 발생
+    // blur: input 태그에 focus를 잃엇을 경우 발생
+
+
+
+    // 문서/윈도우 이벤트
+    // load: 해당 페이지가 로드될 경우 발생
+    // resize: 해당 브라우저 창 크기가 변경될 경우 발생
+    // scroll: 마우스 스크롤이 발생할 경우 발생
+    // cuload: 해당 페이지가 종료되었을 경우 발생
+
+
+
+
+
+
+
+
+
         // jquery를 이용하여 html 태그가 모두 로딩된 후 자바스크립트가 로딩되게 하는 이벤트
         $(document).ready(function(){
             // 클릭 이벤트를 직접 실행
@@ -48,10 +79,43 @@
                 console.log("마우스의 위치:"+x+","+y);
             });
 
+            // 키보드 이벤트
+            $("#keyboardEvent").on("keydown",function(){
+                $("#keyboardEven").css("background-color","blue");
+
+            });
+
+            $("#keyboardEvent").on("keyup",function(){
+                $("#keyboardEven").css("background-color","green");
+
+            });
+
+            // form 이벤트
+            $("#formEvent").on("focus",function(){
+                $("#formEvent").css("font-size","36px");
+            });
+
+            $("#formEvent").on("blur",function(){
+                $("#formEven").css("font-size","16px");
+            });
+
+            $("#formEvent").on("change",function(){
+                $("#formEvent").css("background-color","yellow");
+            });
+
+
+            // 문서/윈도우 이벤트
+            $(window).on("resize",function(){
+                alert("브라우저 창의 크기를 조절했습니다.");
+            });
+            $(".scroll").on("scroll",function(){
+                $("span").css("display","inline").fadeOut("slow");
+            });
+
 
         });
     </script>
-
+  
     <style>
         .box {
             width: 100px;
@@ -63,9 +127,54 @@
         .blue {background-color: blue;}
         .green {background-color: green; width: 300px; height: 300px;}
 
+        .scroll{
+            width: 300px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        .scroll span{
+            color: red;
+            display: none;
+        }
+
     </style>
+    
 </head>
 <body>
+    <div class="box red"></div>
+    <div class="box green">
+        <div class="box blue"></div>
+    </div>
+
+    <br><br><hr><br>
+
+    <h4>키보드 이벤트</h4>
+    <div type="text" id="keyboardEvent"></div>
+
+    <br><br><hr><br>
+
+    <h3>form 이벤트</h3>
+    <input type="text" id="formEvent" value="기본 문자열"></input>
+
+    
+    <br><br><br><hr>
+    <h3>문서/윈도우 이벤트</h3>
+    <div class="box scroll">
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+        <p>scroll 이벤트- <span>이벤트 동작</span></p>
+    </div>
+    
+
 
  
     
