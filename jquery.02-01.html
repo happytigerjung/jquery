@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="k">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq 2-1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="jquery.color-2.1.2.js"></script>
+   
+    <script>
+
+        // jquery 콜백 함수: 현재 효과가 완료된 후 실행되는 함수
+        // 기본 구분 - $(선택자).hide(속도,실행함수)
+        // 비동기 처리 방식-요청을 보낸 후 해당 응답을 받아야 다음 동작을 실행-c,c++c#,java
+        // 비동기 처리 방식-요청을 보낸 후 응답에 관계없이 다음동작을 실행-javascript
+        // 비동기 방식 사용 이유-자바스크립트는 웹에서 사용되고 있고,서버에 요청을 보낸 후 서버에서 
+        // 응답이 없을 경우에도 나머지 부분을 처리를 해야하기 대문에 비동기 방식을 사용,해당 응답이 온 후 필요작업 진행
+
+
+
+
+
+
+        // 콜백함수 사용
+        $(document).ready(function(){
+            $("#btnCall1").on("click",function(){
+                $("#pCall1").hide("slow",function(){
+                    alert("p태그 숨거짐");
+                });
+            });
+
+
+            // 콜백함수 미사용
+            $("#btnCall2").on("click",function(){
+                $("#pCall2").hide("slow");
+                alert("p태그 숨겨짐");
+                // console.log("p태그 숨겨짐.콜백함수 미사용");
+            });
+
+            $("#btnCall3").on("click",function(){
+                console.log("버튼3 1");
+                console.log("버튼3 2");
+                console.log("버튼3 3");
+                console.log("===========");
+            });
+
+            $("#btnCall4").on("click",function(){
+                console.log("버튼4 1");
+
+                setTimeout(function(){
+                    console.log("버튼4 2");
+                }, 1000);
+                
+                console.log("버튼4 3");
+                console.log("==========");
+            });
+
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <h3>콜백 함수 사용</h3>
+    <button id="btnCall1">Hide</button>
+    <p id="pCall1">버튼 클릭 시 숨거질 p태그</p>
+
+
+    <br><br><hr><br>
+
+    <h3>콜백 함수 미사용</h3>
+    <button id="btnCall2">hide</button>
+    <p id="pCall2">버튼 클릭 시 숨거질 p태그</p>
+
+    <br><br><hr><br>
+
+    <button id="btnCall3">클릭3 시 콘솔창에 출력</button>
+
+    <br><br><hr><br>
+
+    <button id="btnCall4">클릭4 시 콘솔창에 출력</button>
+    
+</body>
+</html>
